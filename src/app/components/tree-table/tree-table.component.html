@@ -1,0 +1,24 @@
+<ng-container *ngIf="index">
+  <div [style.margin-left]="(index-1)*20+'px'" class="row">
+    <div class="name-col" [class.name-style]="(item.children &&  item.expand)"
+      [style.font-weight]="getFornWeight(item, index)" [class.name-childeren-style]="!item.children && !item.expand"
+      (click)="item.expand=!item.expand">
+      <span *ngIf="item.children && !item.expand">+</span>
+      <span *ngIf="item.children && item.expand">-</span>
+     {{item.name }}{{item.idx}}
+    </div>
+    <div class="col" [style.margin-left]="(index-1)*-15+'px'">
+      <input type="checkbox" (click)="selectIrisk(item.children, item,  $event)" [checked]="item.irisk" name="" id="">
+    </div>
+
+    <div class="col">
+      <input type="checkbox" (click)="selectIsupplier(item.children, item,  $event)" [checked]="item.isupplier" name=""
+        id="">
+    </div>
+  </div>
+
+</ng-container>
+<ng-container *ngIf="item.children && (index==0 || item.expand)">
+  <app-tree-table  *ngFor="let item of item.children; trackBy:childrenByNode" [index]="index+1" [item]="item">
+  </app-tree-table>
+  <ng-container>

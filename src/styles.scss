@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.search-input {
+  .mat-form-field-wrapper {
+    margin: 0 !important;
+    padding: 10px;
+  }
+
+  .mat-form-field-outline {
+    height: 42px;
+  }
+  width: 95%;
+}
